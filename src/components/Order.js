@@ -3,6 +3,7 @@ import { formatPrice } from '../helpers'
 
 export class Order extends Component {
   constructor() {
+    super()
     this.renderOrder = this.renderOrder.bind(this)
   }
 
@@ -13,7 +14,7 @@ export class Order extends Component {
     if(!fish || fish.status === 'unavailable') {
       return <li key={key}>Sorry, {fish ? fish.name : 'fish'} is no longer available!</li>
     }
-    
+
     return (
       <li key={key}>
         <span> {count}lbs {fish.name} </span>
@@ -38,7 +39,7 @@ export class Order extends Component {
         <h2>Your Order</h2>
         <ul className="order"></ul>
         {orderIds.map(this.renderOrder)}
-          <li>
+          <li className="total">
             <strong>Total:</strong>
             {formatPrice(total)}
           </li>
