@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
-import { getFunName } from '../helpers';
+import { getFunName } from '../helpers'
 
 
 class StorePicker extends Component {
-    // constructor() {
-    //     super()
-    //     this.goToStore = this.goToStore.bind(this)
-    // }
+
     goToStore(event) {
         event.preventDefault()
-        console.log('you changed the URL')
         // first grab the text from the box
-        console.log(this.storeInput.value)
+        const storeId = this.storeInput.value
+        console.log(`going to: ${storeId}`)
         //secon we're going to transition from / to / store/:storeID
+        this.context.router.transitionTo(`/store/${storeId}`)
     }
     render() {
         return (
@@ -27,6 +25,10 @@ class StorePicker extends Component {
             </form>
         )
     }
+}
+
+StorePicker.contextTypes = {
+    router: React.PropTypes.object
 }
 
 export default StorePicker
