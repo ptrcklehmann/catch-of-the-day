@@ -4,6 +4,14 @@ import Order from './Order'
 import Inventory from './Inventory'
 
 export class App extends Component {
+  constructor() {
+    super()
+    //initial state
+    this.state = {
+      fishes: {},
+      order: {}
+    }
+  }
   render() {
     return (
       <div className="catch-of-the-day">
