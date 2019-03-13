@@ -37,12 +37,13 @@ export class Order extends Component {
     return (
       <div className="order-wrap">
         <h2>Your Order</h2>
-        <ul className="order"></ul>
+        <ul className="order">
         {orderIds.map(this.renderOrder)}
           <li className="total">
             <strong>Total:</strong>
             {formatPrice(total)}
           </li>
+        </ul>
       </div>
     )
   }
