@@ -4,7 +4,7 @@ export class AddFishForm extends Component {
 
     createFish(event) {
         event.preventDefault();
-        console.log('gonna make some fiss! \u{1F41F}')
+        console.log('gonna make some fish! \u{1F41F}')
         const fish ={
             name: this.name.value,
             price: this.price.value,
