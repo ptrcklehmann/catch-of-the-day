@@ -18,7 +18,8 @@
     "react": "15.3.2",
     "react-addons-css-transition-group": "15.3.2",
     "react-dom": "15.3.2",
-    "react-router": "4.0.0-alpha.4"
+    "react-router": "4.0.0-alpha.4",
+    "sass": "^1.17.3"
   },
   "scripts": {
     "start": "react-scripts start",

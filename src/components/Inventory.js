@@ -22,6 +22,18 @@ export class Inventory extends Component {
 
   }
 
+  renderLogin(){
+     return(
+       <nav className="login">
+         <h2>Inventory</h2>
+         <p>Sign In to manage your store Inventory</p>
+         <button className="github" onClick={() => this.authenticate('github')}>Login with Github</button>
+         <button className="facebook" onClick={() => this.authenticate('facebook')}>Login with Facebook</button>
+         <button className="twitter" onClick={() => this.authenticate('twitter')}>Login with Twitter</button>
+       </nav>
+     )
+  }
+
   renderInventory(key) {
     const fish = this.props.fishes[key]
     return (
@@ -35,11 +47,13 @@ export class Inventory extends Component {
         <textarea type="text" name="desc" value={fish.desc} placeholder="Fish Desc" onChange={(e) => this.handleChange(e, key)} >
         </textarea>
         <input type="text" name="image" value={fish.image} placeholder="Fish Image" onChange={(e) => this.handleChange(e, key)} />
+        <button onClick={() => this.props.removeFish(key)}>Remove Fish</button>
       </div>
   )
 }
 
   render() {
+    if(!this.state.uid)
     return (
       <div>
         <h2>Inventory</h2>
@@ -49,6 +63,14 @@ export class Inventory extends Component {
       </div>
     )
   }
+}
+
+Inventory.propTypes = {
+  fishes: React.PropTypes.object.isRequired,
+  updateFish: React.PropTypes.func.isRequired,
+  addFish: React.PropTypes.func.isRequired,
+  removeFish: React.PropTypes.func.isRequired,
+  loadSamples: React.PropTypes.func.isRequired
 }
 
 export default Inventory
